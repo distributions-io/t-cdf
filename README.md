@@ -6,8 +6,8 @@ Cumulative Distribution Function
 
 The [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) for a [Student t](https://en.wikipedia.org/wiki/Student t_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="F(t) = 1 - \frac{1}{2} \frac{\operatorname{Beta}(\tfrac{\nu}{\nu + t^2};\,\tfrac{\nu}{2},\tfrac{1}{2})}{\operatorname{Beta}(\tfrac{\nu}{2}, \tfrac{1}{2})} " data-equation="eq:cdf">
-	<img src="https://cdn.rawgit.com/distributions-io/t-cdf/e4381612490b7c1ce55260691ef827882fa579a0/docs/img/eqn.svg" alt="Cumulative distribution function for a Student t distribution.">
+<div class="equation" align="center" data-raw-text="F(x;\nu) = 1 - \frac{1}{2} \frac{\operatorname{Beta}(\tfrac{\nu}{\nu + x^2};\,\tfrac{\nu}{2},\tfrac{1}{2})}{\operatorname{Beta}(\tfrac{\nu}{2}, \tfrac{1}{2})}" data-equation="eq:cdf">
+	<img src="https://cdn.rawgit.com/distributions-io/t-cdf/c48f97a04a0b9e234553cc08e0be3e8b37480a27/docs/img/eqn.svg" alt="Cumulative distribution function for a Student t distribution.">
 	<br>
 </div>
 
