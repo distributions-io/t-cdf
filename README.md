@@ -1,17 +1,17 @@
 Cumulative Distribution Function
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Student t](https://en.wikipedia.org/wiki/Student t_distribution) distribution [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function).
 
 The [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) for a [Student t](https://en.wikipedia.org/wiki/Student t_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:cdf">
-	<img src="" alt="Cumulative distribution function for a Student t distribution.">
+<div class="equation" align="center" data-raw-text="F(t) = 1 - \frac{1}{2} \frac{\operatorname{Beta}(\tfrac{\nu}{\nu + t^2};\,\tfrac{\nu}{2},\tfrac{1}{2})}{\operatorname{Beta}(\tfrac{\nu}{2}, \tfrac{1}{2})} " data-equation="eq:cdf">
+	<img src="https://cdn.rawgit.com/distributions-io/t-cdf/e4381612490b7c1ce55260691ef827882fa579a0/docs/img/eqn.svg" alt="Cumulative distribution function for a Student t distribution.">
 	<br>
 </div>
 
-where `v` is the degrees of freedom.
+where `v` is the degrees of freedom. In the definition, `Beta( x; a, b )` denotes the [lower incomplete beta function](https://github.com/compute-io/betainc) and `Beta( a, b )` the [beta function](https://en.wikipedia.org/wiki/Beta_function).
 
 ## Installation
 
@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = cdf( 1 );
-// returns
+// returns 0.75
 
 x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x );
-// returns [...]
+// returns [ ~0.078, ~0.148, ~0.5, ~0.852, ~0.922 ]
 
 x = new Float32Array( x );
 out = cdf( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [~0.078,~0.148,~0.5,~0.852,~0.922] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = cdf( mat );
 /*
-	[
-
-	   ]
+	[ ~0.102 ~0.148
+	  ~0.25 ~0.5
+	  ~0.75 ~0.852 ]
 */
 ```
 
@@ -86,7 +86,7 @@ var x = [ -4, -2, 0, 2, 4 ];
 var out = cdf( x, {
 	'v': 5
 });
-// returns [...]
+// returns [ ~0.00516, ~0.051, ~0.5, ~0.949, ~0.995 ]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -107,7 +107,7 @@ function getValue( d, i ) {
 var out = cdf( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ ~0.078, ~0.148, ~0.5, ~0.852, ~0.922 ]
 ```
 
 
@@ -128,11 +128,11 @@ var out = cdf( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
+		{'x':[0,~0.078]},
+		{'x':[1,~0.148]},
+		{'x':[2,~0.5]},
+		{'x':[3,~0.852]},
+		{'x':[4,~0.922]},
 	]
 */
 
@@ -150,13 +150,13 @@ x = new Float64Array( [-4,-2,0,2,4] );
 out = cdf( x, {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0.078,~0.148,~0.5,~0.852,~0.922] )
 
 // Works for plain arrays, as well...
 out = cdf( [-4,-2,0,2,4], {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0.078,~0.148,~0.5,~0.852,~0.922] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -173,7 +173,7 @@ x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ ~0.078, ~0.148, ~0.5, ~0.852, ~0.922 ]
 
 bool = ( x === out );
 // returns true
@@ -193,9 +193,9 @@ out = cdf( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ ~0.102 ~0.148
+	  ~0.25 ~0.5
+	  ~0.75 ~0.852 ]
 */
 
 bool = ( mat === out );
@@ -362,8 +362,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/t-cdf/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/t-cdf
 
-[coveralls-image]: https://img.shields.io/coveralls/distributions-io/t-cdf/master.svg
-[coveralls-url]: https://coveralls.io/r/distributions-io/t-cdf?branch=master
+[codecov-image]: https://img.shields.io/codecov/github/distributions-io/t-cdf/master.svg
+[codecov-url]: https://codecov.io/github/distributions-io/t-cdf?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/t-cdf.svg
 [dependencies-url]: https://david-dm.org/distributions-io/t-cdf
