@@ -1,7 +1,7 @@
 options( digits = 16 )
 library( jsonlite )
 
-v = 1
+v = 1.2
 x = 0:24
 y = pt( x, v )
 

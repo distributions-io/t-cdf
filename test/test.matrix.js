@@ -62,7 +62,7 @@ describe( 'matrix cdf', function tests() {
 
 		for ( i = 0; i < actual.length; i++ ) {
 			if ( isFiniteNumber( actual.data[ i ] ) && isFiniteNumber( out.data[ i ] ) ) {
-				assert.closeTo( actual.data[ i ], out.data[ i ], 1e-14 );
+				assert.closeTo( actual.data[ i ], out.data[ i ], 1e-4 );
 			}
 		}
 	});

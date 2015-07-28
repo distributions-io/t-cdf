@@ -1,7 +1,7 @@
 options( digits = 16 )
 library( jsonlite )
 
-v = 1
+v = 6
 x = seq( -1000, 1000, 0.5 )
 y = pt( x, v )
 
