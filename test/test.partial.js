@@ -49,7 +49,7 @@ describe( 'partial cdf', function tests() {
 		for ( var i = 0; i < data.length; i++ ) {
 			actual = cdf( data[ i ] );
 			if ( isFiniteNumber( actual ) && isFiniteNumber( expected[ i ] ) ) {
-				assert.closeTo( actual, expected[ i ] , 1e-4 );
+				assert.closeTo( actual, expected[ i ] , 1e-14 );
 			}
 		}
 	});

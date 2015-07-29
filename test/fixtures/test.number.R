@@ -2,7 +2,7 @@ options( digits = 16 )
 library( jsonlite )
 
 v = 4
-x = c( -5, -2.5, 0, 2.5, 5 )
+x = c( -5, -2.5, -1, 0, 1, 2.5, 5 )
 y = pt( x, v )
 
 cat( y, sep = ",\n" )
